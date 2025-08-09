@@ -1,17 +1,11 @@
 import React, { useState } from 'react';
+import './App.css';
 
 function App() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    password: ''
-  });
+  const [formData, setFormData] = useState({ name: '', email: '', password: '' });
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
@@ -20,55 +14,19 @@ function App() {
   };
 
   return (
-    <div style={{ fontFamily: 'Arial, sans-serif', padding: '20px', background: '#f5f5f5', minHeight: '100vh' }}>
-      <h1 style={{ textAlign: 'center' }}>Sign Up</h1>
-      <form 
-        onSubmit={handleSubmit} 
-        style={{ 
-          maxWidth: '400px', 
-          margin: 'auto', 
-          background: 'white', 
-          padding: '20px', 
-          borderRadius: '10px', 
-          boxShadow: '0 2px 5px rgba(0,0,0,0.2)' 
-        }}
-      >
+    <div className="signup-container">
+      <h1>Sign Up</h1>
+      <form onSubmit={handleSubmit}>
         <label>Name</label>
-        <input 
-          type="text" 
-          name="name" 
-          value={formData.name} 
-          onChange={handleChange} 
-          required 
-          style={{ width: '100%', padding: '10px', margin: '8px 0', borderRadius: '5px', border: '1px solid #ccc' }}
-        />
+        <input type="text" name="name" value={formData.name} onChange={handleChange} required />
 
         <label>Email</label>
-        <input 
-          type="email" 
-          name="email" 
-          value={formData.email} 
-          onChange={handleChange} 
-          required 
-          style={{ width: '100%', padding: '10px', margin: '8px 0', borderRadius: '5px', border: '1px solid #ccc' }}
-        />
+        <input type="email" name="email" value={formData.email} onChange={handleChange} required />
 
         <label>Password</label>
-        <input 
-          type="password" 
-          name="password" 
-          value={formData.password} 
-          onChange={handleChange} 
-          required 
-          style={{ width: '100%', padding: '10px', margin: '8px 0', borderRadius: '5px', border: '1px solid #ccc' }}
-        />
+        <input type="password" name="password" value={formData.password} onChange={handleChange} required />
 
-        <button 
-          type="submit" 
-          style={{ width: '100%', padding: '10px', background: '#007BFF', color: 'white', border: 'none', borderRadius: '5px', cursor: 'pointer' }}
-        >
-          Sign Up
-        </button>
+        <button type="submit">Sign Up</button>
       </form>
     </div>
   );
